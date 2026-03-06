@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B. Mohan Krishna | .NET Backend Developer</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:#050816;
+  color:#e5e7eb;
+  overflow-x:hidden;
+}
+
+/* Prevent background blocking clicks */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  backdrop-filter:blur(12px);
+  background:rgba(10,15,30,0.7);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  z-index:100;
+}
+nav .container{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav .links a{
+  margin-left:25px;
+  text-decoration:none;
+  color:#9ca3af;
+  transition:.3s;
+}
+nav .links a:hover{color:white;}
+
+.social{display:flex;gap:15px;}
+.icon{
+  width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;
+  background:rgba(255,255,255,0.05);
+  transition:.3s;
+}
+.icon svg{width:18px;height:18px;fill:#9ca3af;}
+.icon:hover{
+  background:rgba(59,130,246,0.2);
+  transform:translateY(-3px);
+}
+.icon:hover svg{fill:#3b82f6;}
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:180px 40px;
+}
+.glass{
+  background:rgba(20,25,45,0.6);
+  backdrop-filter:blur(20px);
+  padding:50px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.05);
+}
+h1{font-size:48px;margin-bottom:10px;}
+h2{margin-bottom:20px;}
+
+/* Button style */
+.button-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.button-card{
+  padding:18px;
+  text-align:center;
+  border-radius:14px;
+  background:linear-gradient(145deg,#0f172a,#111827);
+  border:1px solid rgba(255,255,255,0.06);
+  transition:0.3s ease;
+}
+.button-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 20px rgba(59,130,246,0.6);
+  background:rgba(59,130,246,0.15);
+}
+
+footer{
+  text-align:center;
+  padding:60px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  color:#6b7280;
+}
+
+.input-field{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);
+  color:white;
+  font-size:14px;
+  outline:none;
+  transition:0.3s;
+}
+
+.input-field:focus{
+  border:1px solid #3b82f6;
+  box-shadow:0 0 12px rgba(59,130,246,0.5);
+}
+
+textarea{
+  resize:none;
+}
+
+.submit-btn{
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#3b82f6;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.submit-btn:hover{
+  background:#2563eb;
+  box-shadow:0 0 20px rgba(59,130,246,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container">
+    <div><strong>Mohan.dev</strong></div>
+
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#interests">Interests</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="social">
+      
+
+  <!-- GitHub -->
+  <a href="https://github.com/mk1958"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="icon">
+    <svg viewBox="0 0 24 24">
+      <path fill="currentColor"
+      d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.2 11.4c.6.1.8-.2.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.5 2.4 1 3 .8.1-.7.3-1 .6-1.3-2.7-.3-5.6-1.3-5.6-6a4.7 4.7 0 011.3-3.3 4.4 4.4 0 01.1-3.3s1-.3 3.4 1.3a11.6 11.6 0 016.2 0c2.4-1.6 3.4-1.3 3.4-1.3a4.4 4.4 0 01.1 3.3 4.7 4.7 0 011.3 3.3c0 4.7-2.9 5.7-5.6 6 .3.3.6.8.6 1.7v2.6c0 .4.2.7.8.6A12 12 0 0024 12c0-6.6-5.4-12-12-12z"/>
+    </svg>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/bandaru-mohan-krishna-0207b3291"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="icon">
+    <svg viewBox="0 0 24 24">
+      <path fill="currentColor"
+      d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5zM.24 8.98h4.5V24H.24V8.98zM8.98 8.98h4.31v2.05h.06c.6-1.13 2.07-2.31 4.27-2.31 4.57 0 5.41 3.01 5.41 6.92V24h-4.5v-7.58c0-1.81-.03-4.13-2.52-4.13-2.52 0-2.9 1.97-2.9 4v7.71h-4.5V8.98z"/>
+    </svg>
+  </a>
+
+</div>
+    </div>
+  </div>
+</nav>
+
+<section id="about" class="section">
+  <div class="glass">
+    <h1>B. Mohan Krishna</h1>
+    <h2>.NET Developer</h2>
+
+    <p style="margin-top:20px; line-height:1.8; color:#9ca3af; max-width:800px;">
+     I am an enthusiastic .NET Backend Developer with a solid understanding of ASP.NET Core, Web API, C#, and SQL Server.
+     I am passionate about developing reliable and efficient backend solutions that support scalable web applications and solve real-world challenges.
+<br><br>
+As a fresher, 
+I have built projects such as Smart Task Manager and an AI-based Adult Content Detection system,
+where I focused on implementing structured architecture, optimized database management, and clean coding practices.
+I am eager to continuously enhance my development skills and grow as a software engineer by building impactful and innovative applications.
+    </p>
+
+  </div>
+</section>
+
+<!-- SKILLS (6 Buttons Only) -->
+<section id="skills" class="section">
+  <div class="glass">
+    <h2>Skills</h2>
+    <div class="button-grid">
+      <div class="button-card">C#</div>
+      <div class="button-card">OOPS</div>
+      <div class="button-card">SQL Server</div>
+      <div class="button-card">MVC</div>
+      <div class="button-card">Entity Framework</div>
+      <div class="button-card">Web API</div>
+      <div class="button-card">HTML</div>
+      <div class="button-card">CSS</div>
+      <div class="button-card">JavaScript</div>
+    </div>  
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS & HOBBIES -->
+<section id="interests" class="section">
+  <div class="glass">
+    <h2>Interests & Hobbies</h2>
+    <div class="button-grid">
+      <div class="button-card">Application Engine Design</div>
+      <div class="button-card">AI Logic Crafting</div>
+      <div class="button-card">Personal Development</div>
+      <div class="button-card">64-Square Tactics</div>
+      <div class="button-card">Anime Enthusiast</div>
+      <div class="button-card">Digital Architecture</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="glass">
+    <h2>Projects</h2>
+    <div class="button-grid">
+
+      <div class="button-card">
+        <h3 style="margin-bottom:10px;">Smart Task Manager</h3>
+        <p style="font-size:14px; color:#9ca3af; line-height:1.6;">
+          A backend-driven task management system built using ASP.NET Core Web API 
+          and SQL Server. It supports CRUD operations, authentication, and 
+          efficient task tracking with clean architecture principles.
+        </p>
+      </div>
+
+      <div class="button-card">
+        <h3 style="margin-bottom:10px;">Adult Content Detection</h3>
+        <p style="font-size:14px; color:#9ca3af; line-height:1.6;">
+          Developed an AI-based adult content detection system using Python, Machine Learning, and Deep Learning
+          to classify inappropriate images, integrated with a backend API for secure image processing and automated content filtering.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section">
+  <div class="glass">
+    <h2>Certifications</h2>
+    <div class="button-grid">
+      <div class="button-card">.Net Developer</div>
+      <div class="button-card">Generative AI</div>
+      <div class="button-card">Cyber Security</div>
+      <div class="button-card">Power BI</div>
+      <div class="button-card">Project Management</div>
+      <div class="button-card">Machine Learning With Python</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="glass">
+    <h2>Contact Me</h2>
+
+    <form id="contact-form" style="margin-top:30px; display:flex; flex-direction:column; gap:20px;">
+
+      <input type="text" name="from_name" placeholder="Full Name" required class="input-field">
+
+      <input type="email" name="from_email" placeholder="Email Address" required class="input-field">
+
+      <input type="tel" name="phone" placeholder="Phone Number" required class="input-field">
+
+      <input type="text" name="subject" placeholder="Subject" required class="input-field">
+
+      <textarea name="message" rows="5" placeholder="Your Message" required class="input-field"></textarea>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+
+      <p id="form-status" style="margin-top:10px;"></p>
+
+    </form>
+
+  </div>
+</section>
+
+<footer> B.Mohan Krishna</footer>
+
+<script>
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
+camera.position.z=35;
+
+/* Stars */
+const starGeo=new THREE.BufferGeometry();
+const starVertices=[];
+for(let i=0;i<800;i++){
+  starVertices.push((Math.random()-0.5)*300);
+  starVertices.push((Math.random()-0.5)*300);
+  starVertices.push((Math.random()-0.5)*300);
+}
+starGeo.setAttribute("position",new THREE.Float32BufferAttribute(starVertices,3));
+const stars=new THREE.Points(starGeo,new THREE.PointsMaterial({color:0xffffff,size:0.25}));
+scene.add(stars);
+
+/* Medium Sphere */
+const sphere=new THREE.Mesh(
+  new THREE.IcosahedronGeometry(9,1),
+  new THREE.MeshStandardMaterial({color:0x3b82f6,wireframe:true})
+);
+sphere.position.x=14;
+scene.add(sphere);
+
+const light=new THREE.AmbientLight(0xffffff,0.6);
+scene.add(light);
+
+function animate(){
+  requestAnimationFrame(animate);
+  stars.rotation.y+=0.0004;
+  sphere.rotation.y+=0.003;
+  renderer.render(scene,camera);
+}
+animate();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("WGSM8KezjG0PUBARR");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+emailjs.sendForm("service_dx94rmg", "template_jo7lflb", this)
+    .then(function() {
+      document.getElementById("form-status").style.color = "#22c55e";
+      document.getElementById("form-status").innerText = "Message sent successfully 🚀";
+      document.getElementById("contact-form").reset();
+    }, function(error) {
+      document.getElementById("form-status").style.color = "#ef4444";
+      document.getElementById("form-status").innerText = "Failed to send message ❌";
+      console.log(error);
+    });
+});
+</script>
+
+</body>
+</html>
